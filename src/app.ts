@@ -9,7 +9,16 @@ import errorHandler from "./middleware/errorHandler";
 import fourOhFour from "./middleware/fourOhFour";
 import root from "./routes/root";
 
+import dotenv from 'dotenv';
+import connectDB from './db'
+import auth from './routes/auth';
+
 const app = express();
+
+
+dotenv.config();
+
+connectDB()
 
 // Apply most middleware first
 app.use(express.json());
@@ -28,6 +37,7 @@ app.use(morgan("tiny"));
 
 // Apply routes before error handling
 app.use("/", root);
+app.use("/auth", auth);
 
 // Apply error handling last
 app.use(fourOhFour);

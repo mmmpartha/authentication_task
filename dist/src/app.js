@@ -13,7 +13,12 @@ const config_1 = __importDefault(require("./config"));
 const errorHandler_1 = __importDefault(require("./middleware/errorHandler"));
 const fourOhFour_1 = __importDefault(require("./middleware/fourOhFour"));
 const root_1 = __importDefault(require("./routes/root"));
+const dotenv_1 = __importDefault(require("dotenv"));
+const db_1 = __importDefault(require("./db"));
+const auth_1 = __importDefault(require("./routes/auth"));
 const app = (0, express_1.default)();
+dotenv_1.default.config();
+(0, db_1.default)();
 // Apply most middleware first
 app.use(express_1.default.json());
 app.use(express_1.default.urlencoded({ extended: true }));
@@ -26,6 +31,7 @@ app.use((0, helmet_1.default)());
 app.use((0, morgan_1.default)("tiny"));
 // Apply routes before error handling
 app.use("/", root_1.default);
+app.use("/auth", auth_1.default);
 // Apply error handling last
 app.use(fourOhFour_1.default);
 app.use(errorHandler_1.default);

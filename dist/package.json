@@ -1,8 +1,8 @@
 {
-    "name": "Dream Tnpsc",
+    "name": "Authentication",
     "version": "1.0.1",
-    "description": "Aspirants Preparation app: Study, practice, succeed!",
-    "author": "Carter Adams <carteradams@gmail.com>",
+    "description": "Authentication Task",
+    "author": "mpparthipan1998@gmail.com",
     "license": "MIT-0",
     "private": false,
     "main": "dist/src/index.js",
@@ -16,14 +16,18 @@
         "lint": "npx eslint src"
     },
     "dependencies": {
+        "bcrypt": "^5.1.1",
         "cookie-parser": "^1.4.6",
         "cors": "^2.8.5",
         "express": "^4.18.2",
         "helmet": "^6.0.1",
+        "jsonwebtoken": "^9.0.2",
+        "mongoose": "^8.9.3",
         "morgan": "^1.10.0",
         "yarn": "^1.22.21"
     },
     "devDependencies": {
+        "@types/bcrypt": "^5.0.2",
         "@types/cookie-parser": "^1.4.3",
         "@types/cors": "^2.8.13",
         "@types/express": "^4.17.17",
